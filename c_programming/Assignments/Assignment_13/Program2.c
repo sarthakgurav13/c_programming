@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+/////////////////////////////////////////////////////////////////////////////////
+//          Function Name : CountOdd
+//          Input         : Integer
+//          Output        : Integer
+//          Description   : Count the frequency of odd digits in the given number
+//          Date          : 05/11/2026
+//          Author        : Sarthak Babalu Gurav  
+//////////////////////////////////////////////////////////////////////////////////
+
+int CountOdd(int iNo)
+{
+    int iDigit = 0;
+    int iCnt = 0;
+
+    if (iNo < 0)
+    {
+      iNo = -iNo;
+    }
+
+    while (iNo != 0)  
+    {
+      iDigit = iNo % 10;
+
+      if ((iDigit % 2) != 0)
+      {
+            iCnt++;
+      }
+
+      iNo = iNo/10;
+    }
+
+    return iCnt;
+
+}
+/////////////////////////////////////////////////////////////////////////////////
+//
+//          Entry Point Of the application
+//
+/////////////////////////////////////////////////////////////////////////////////
+int main()
+{
+    int iValue = 0;
+    int iRet = 0;
+
+    printf("Enter a number : ");
+    scanf("%d",&iValue);
+
+    iRet = CountOdd(iValue);
+
+    printf("Frequency of odd digit in number is : %d\n",iRet);
+
+
+    return EXIT_SUCCESS;
+}
+//////////////////////////////////////////////////////////////////////////////////
+//      Test the program
+//
+//      Tested test Cases
+//--------------------------------------------------------------------------------
+//      Input 1             Output                              
+//--------------------------------------------------------------------------------  
+//      123456              3
+//      2468                0
+//      13579               5
+//      102030              2
+//      -12345              3
+//      0                   0
+//////////////////////////////////////////////////////////////////////////////////
